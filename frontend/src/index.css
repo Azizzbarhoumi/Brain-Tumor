@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-slate-200 antialiased;
+  }
+
+  ::selection {
+    background: rgba(59, 196, 255, 0.3);
+  }
+}
+
+@layer components {
+  /* Glassy card surface used across the app */
+  .panel {
+    @apply rounded-2xl border border-white/[0.06] bg-ink-900/80 shadow-[0_1px_0_0_rgba(255,255,255,0.03)_inset] backdrop-blur-sm;
+  }
+
+  /* Small uppercase section label */
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-slate-500;
+  }
+
+  /* Shimmering placeholder block */
+  .skeleton {
+    @apply animate-shimmer rounded-xl;
+    background-color: #0e1520;
+    background-image: linear-gradient(90deg, #0e1520 0px, #172133 120px, #0e1520 240px);
+    background-size: 800px 100%;
+  }
+}
+
+@layer utilities {
+  /* Faint blueprint grid behind the page */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+/* ---------- Threshold slider ---------- */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  background: transparent;
+  cursor: pointer;
+}
+.range:focus {
+  outline: none;
+}
+.range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #3bc4ff 0%,
+    #3bc4ff var(--pct, 50%),
+    #1c2636 var(--pct, 50%),
+    #1c2636 100%
+  );
+}
+.range::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: #1c2636;
+}
+.range::-moz-range-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: #3bc4ff;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #05080d;
+  border: 3px solid #3bc4ff;
+  box-shadow: 0 0 0 4px rgba(59, 196, 255, 0.15);
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+.range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #05080d;
+  border: 3px solid #3bc4ff;
+  box-shadow: 0 0 0 4px rgba(59, 196, 255, 0.15);
+}
+.range:hover::-webkit-slider-thumb,
+.range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 7px rgba(59, 196, 255, 0.22);
+  transform: scale(1.05);
+}
+.range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 7px rgba(59, 196, 255, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

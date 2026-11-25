@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+backend/.venv/
+backend/weights/
+backend/outputs/
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+data/

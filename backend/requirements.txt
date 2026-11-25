@@ -1,0 +1,14 @@
+# NeuroSeg backend dependencies (Python 3.10 - 3.12 recommended).
+# For an NVIDIA GPU on Windows/Linux, install the CUDA build of PyTorch FIRST
+# (see README), then run: pip install -r requirements.txt
+torch>=2.3
+torchvision>=0.18
+segmentation-models-pytorch>=0.3.4
+albumentations>=1.4.0
+numpy>=1.24
+pillow>=10.0
+matplotlib>=3.7
+kagglehub>=0.3.0
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
